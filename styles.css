@@ -1,0 +1,184 @@
+/*
+  スライド全体の共通スタイル
+  自己紹介スライドの雰囲気（明るい背景・細い罫線・控えめなアクセント）に揃える
+*/
+
+:root {
+  --bg: #f6f8f5;
+  --ink: #1a1a1a;
+  --muted: #6b706a;
+  --rule: rgba(26, 26, 26, 0.12);
+  --accent: #1f7a4d;
+  --accent-soft: rgba(31, 122, 77, 0.08);
+  --warn: #b7791f;
+  --warn-soft: rgba(183, 121, 31, 0.08);
+  --card: #ffffff;
+  --slidev-code-background: #ffffff;
+  --slidev-code-font-size: 14px;
+  --slidev-code-line-height: 1.6;
+}
+
+/* ---------- ベース ---------- */
+
+.slidev-layout {
+  background: var(--bg);
+  color: var(--ink);
+  padding: 2.75rem 3.5rem 2.5rem;
+  font-feature-settings: 'palt';
+}
+
+.slidev-layout h1 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  margin: 0 0 1.5rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* デフォルトテーマの「h1 直後の段落を薄くする」を打ち消す */
+.slidev-layout h1 + p {
+  margin-top: 0;
+  opacity: 1;
+}
+
+.slidev-layout h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+
+.slidev-layout p,
+.slidev-layout li {
+  line-height: 1.85;
+}
+
+.slidev-layout li::marker {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.slidev-layout a {
+  color: var(--accent);
+  border-bottom: 1px solid currentColor;
+  text-decoration: none;
+}
+
+.slidev-layout :not(pre) > code {
+  background: rgba(26, 26, 26, 0.06);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.slidev-layout .slidev-code {
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 0.9rem 1.1rem !important;
+}
+
+/* ---------- 部品 ---------- */
+
+/* 小さな英字ラベル（SPEAKER などと同じ） */
+.eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.lead {
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+/* 白いカード */
+.card {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 1.1rem 1.3rem;
+}
+
+/* 注意書き */
+.note {
+  border-left: 3px solid var(--warn);
+  background: var(--warn-soft);
+  border-radius: 0 8px 8px 0;
+  padding: 0.75rem 1.1rem;
+}
+
+/* 強調したい一文 */
+.point {
+  border-left: 3px solid var(--accent);
+  padding: 0.2rem 0 0.2rem 1rem;
+  font-weight: 700;
+}
+
+/* 罫線で区切った「ラベル ＋ 内容」の表 */
+.kv > div {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  align-items: center;
+  padding: 0.55rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.kv > div:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.kv > div > :first-child {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* ---------- 表紙 ---------- */
+
+.slidev-layout.cover {
+  padding: 3.5rem 4rem;
+}
+
+.slidev-layout.cover h1 {
+  font-size: 3.4rem;
+  line-height: 1.25;
+  border: none;
+  padding: 0;
+  margin: 0.8rem 0 1.2rem;
+}
+
+/* ---------- 章の区切り ---------- */
+
+.slidev-layout.section > div {
+  text-align: left;
+  padding-left: 0.5rem;
+}
+
+.slidev-layout.section .eyebrow {
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+}
+
+.slidev-layout.section h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.3;
+  border: none;
+  padding: 0;
+  margin: 0 0 0.8rem;
+}
+
+.slidev-layout.section p {
+  color: var(--muted);
+  font-size: 1.2rem;
+}
